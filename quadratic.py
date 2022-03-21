@@ -1,5 +1,6 @@
+"""Working with quadratic equations"""
 from polinomial import Polynomial
-from math import sqrt, isclose
+from math import sqrt
 
 
 class Quadratic(Polynomial):

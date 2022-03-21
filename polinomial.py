@@ -3,7 +3,13 @@ class Polynomial:
     CLass that stores parameters about the polymonial and
     has methods to work with math problems.
     """
-    def __init__(self, coeff_list):
+    def __init__(self, coeff_list: list):
+        """
+        Stores the following parameter:
+        :param coeff_list: list
+        Excludes the fact of tuple instead of list.
+        Makes the zeroes before the degree disappear.
+        """
         self.coeff_list = coeff_list
         if len(self.coeff_list) == 0:
             self.coeff_list = [0]
@@ -14,7 +20,11 @@ class Polynomial:
         if type(self.coeff_list) == tuple:
             self.coeff_list = list(self.coeff_list)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
+        """
+        Represents the info about the class object.
+        :return: str
+        """
         return "Polynomial(coeffs=" + str(self.coeff_list) + ")"
 
     def degree(self):
@@ -56,12 +66,12 @@ class Polynomial:
 
     def addPolynomial(self, other):
         ans = []
-        for i in range(max(len(self.coeff_list), len(other.coeff_list))):
-            if min(len(other.coeff_list), len(self.coeff_list)) - 1 <= i:
+        for i in range(len(self.coeff_list) + len(other.coeff_list)):
+            try:
                 ans.append(self.coeff_list[i] + other.coeff_list[i])
-            else:
+            except IndexError:
                 break
-        return Polynomial(ans)
+        return ans
 
     def multiplyPolynomial(self, other):
         pass
