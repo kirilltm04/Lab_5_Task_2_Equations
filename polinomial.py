@@ -1,3 +1,6 @@
+"""Working with polynomials."""
+
+
 class Polynomial:
     """
     CLass that stores parameters about the polymonial and
@@ -27,19 +30,38 @@ class Polynomial:
         """
         return "Polynomial(coeffs=" + str(self.coeff_list) + ")"
 
-    def degree(self):
+    def degree(self) -> int:
+        """
+        Returns the degree of the polynomial
+        :return: int
+        """
         return len(self.coeff_list) - 1
 
-    def coeff(self, num):
+    def coeff(self, num: int) -> float:
+        """
+        Returns the coefficient with the exact number.
+        :param num: int
+        :return: float
+        """
         return self.coeff_list[len(self.coeff_list)-num-1]
 
-    def evalAt(self, value):
+    def evalAt(self, value: float) -> float:
+        """
+        Gets the evaluation at an exact point.
+        :param value: float
+        :return: float
+        """
         ans = 0
         for i in range(len(self.coeff_list)):
             ans += value**i * self.coeff_list[::-1][i]
         return ans
 
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
+        """
+        Compares the two class objects and tests their equality.
+        :param other: Polynomial object
+        :return: bool (True if equal)
+        """
         if type(self) == type(other):
             if self.coeff_list == other.coeff_list:
                 return True
@@ -49,31 +71,54 @@ class Polynomial:
         return False
 
     def __hash__(self):
+        """
+        Allows to add objects into sets with the hash function.
+        :return:
+        """
         for i in self.coeff_list:
             return hash(i)
 
-    def scaled(self, num):
+    def scaled(self, num: float):
+        """
+        Scales all the coefficients on the exact number.
+        :param num: float
+        :return: Polynomial object
+        """
         ans = []
         for i in self.coeff_list:
             ans.append(i * num)
         return Polynomial(ans)
 
     def derivative(self):
+        """
+        Gets the derivative for the polynomial
+        :return: Polynomial object
+        """
         ans = []
         for i in range(len(self.coeff_list)-1, -1, -1):
             ans.append(i*self.coeff_list[::-1][i])
         return Polynomial(ans[:-1])
 
     def addPolynomial(self, other):
+        """
+        Adds two Polynomial objects.
+        :param other: Polynomial object
+        :return: Polynomial object
+        """
         ans = []
         for i in range(len(self.coeff_list) + len(other.coeff_list)):
             try:
                 ans.append(self.coeff_list[i] + other.coeff_list[i])
             except IndexError:
                 break
-        return ans
+        return Polynomial(ans)
 
     def multiplyPolynomial(self, other):
+        """
+        Multiplies two Polynomial objects.
+        :param other: Polynomial object
+        :return: Polynomial object
+        """
         pass
 
 
