@@ -9,10 +9,10 @@ Contins two working modules and one testing module:
 - equation_tests.py (containing assert tests for the first two modules).
 All methods and classes are equipped with proper documentation.
 
-#Support
+# Support
 
 In case of problems a user may apply on kirill.tumoian@ucu.edu.ua email.
 
-#Authors and acknowledgement
+# Authors and acknowledgement
 
 The project was done by Kirill Tumoian with using the examples given in the laboratory work short statements.
