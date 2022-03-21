@@ -1,4 +1,4 @@
-from polinomial import Polynomial
+from polynomial import Polynomial
 from quadratic import Quadratic
 
 

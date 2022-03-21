@@ -1,5 +1,5 @@
 """Working with quadratic equations"""
-from polinomial import Polynomial
+from polynomial import Polynomial
 from math import sqrt
 
 
