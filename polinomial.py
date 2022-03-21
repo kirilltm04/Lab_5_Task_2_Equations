@@ -73,7 +73,7 @@ class Polynomial:
     def __hash__(self):
         """
         Allows to add objects into sets with the hash function.
-        :return:
+        :return: hashed object
         """
         for i in self.coeff_list:
             return hash(i)
@@ -105,13 +105,20 @@ class Polynomial:
         :param other: Polynomial object
         :return: Polynomial object
         """
-        ans = []
-        for i in range(len(self.coeff_list) + len(other.coeff_list)):
-            try:
-                ans.append(self.coeff_list[i] + other.coeff_list[i])
-            except IndexError:
-                break
-        return Polynomial(ans)
+        if not isinstance(other, Polynomial):
+            return None
+        revers_self = self.coeff_list[::-1]
+        revers_other = other.coeff_list[::-1]
+        if len(self.coeff_list) >= len(other.coeff_list):
+            ans = revers_self
+            for i in range(len(revers_other)):
+                ans[i] += revers_other[i]
+            return Polynomial(ans[::-1])
+        elif len(self.coeff_list) < len(other.coeff_list):
+            ans = revers_other
+            for i in range(len(revers_self)):
+                ans[i] += revers_self[i]
+            return Polynomial(ans[::-1])
 
     def multiplyPolynomial(self, other):
         """
@@ -119,10 +126,8 @@ class Polynomial:
         :param other: Polynomial object
         :return: Polynomial object
         """
-        pass
-
-
-p1 = Polynomial([2, -3, 5])  # 2x**2 -3x + 5
-p3 = p1.derivative() # 4x - 3
-p4 = p1.addPolynomial(p3) # (2x**2 -3x + 5) + (4x - 3) == (2x**2 + x + 2)
-print(p4)
+        ans = [0] * (len(self.coeff_list) + len(other.coeff_list) - 1)
+        for index_of_list1, value1 in enumerate(other.coeff_list):
+            for index_of_list2, value2 in enumerate(self.coeff_list):
+                ans[index_of_list1 + index_of_list2] += value1 * value2
+        return Polynomial(ans)
