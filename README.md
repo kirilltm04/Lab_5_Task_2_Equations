@@ -3,7 +3,7 @@
 # Code for the second task of the Laboratory work 5
 
 # Description of the modules
-Contins two working modules and one testing module:
+Contains two working modules and one testing module:
 - polynomial.py (containing class Polynomial);
 - quadratic.py (containing class Quadratic - child class for Polynomial);
 - equation_tests.py (containing assert tests for the first two modules).
