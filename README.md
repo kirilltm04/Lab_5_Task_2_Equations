@@ -7,7 +7,8 @@ Contins two working modules and one testing module:
 - polynomial.py (containing class Polynomial);
 - quadratic.py (containing class Quadratic - child class for Polynomial);
 - equation_tests.py (containing assert tests for the first two modules).
-All methods and classes are equipped with proper documentation.
+
+All methods and classes are equipped with the most proper documentation.
 
 # Support
 
