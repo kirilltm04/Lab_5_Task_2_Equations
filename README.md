@@ -1,4 +1,4 @@
-# Lab_5_Task_2_Equotations
+# Lab_5_Task_2_Equations
 
 # Code for the second task of the Laboratory work 5
 
